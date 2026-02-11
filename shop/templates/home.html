@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Cart - Django Project</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <h1>🛒 Amazon Cart</h1>
+            <p>Django Shopping Website</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Products Section -->
+        <section class="products-section">
+            <h2>Our Products</h2>
+            <div class="products-grid">
+                
+                {% for product in products %}
+                <div class="product-card">
+                    <img src="{% static product.image %}" alt="{{ product.name }}">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">₹{{ product.price }}</p>
+                    <a href="{% url 'add_to_cart' product.id %}" class="add-to-cart-btn">
+                        Add to Cart
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section class="cart-section">
+            <h2>Shopping Cart ({{ cart_count }} items)</h2>
+            <div id="cart-items">
+                
+                {% if cart_items %}
+                    {% for item in cart_items %}
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">{{ item.name }}</div>
+                            <div class="cart-item-price">₹{{ item.price }}</div>
+                            <div class="cart-item-quantity">Quantity: {{ item.quantity }}</div>
+                            <div class="cart-item-subtotal">Subtotal: ₹{{ item.subtotal }}</div>
+                        </div>
+                        <a href="{% url 'remove_from_cart' item.id %}" class="remove-btn">
+                            Remove
+                        </a>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="empty-cart">Your cart is empty</p>
+                {% endif %}
+
+            </div>
+            <div class="cart-total">
+                <h3>Total: ₹{{ total_price }}</h3>
+            </div>
+        </section>
+    </div>
+
+  
+</body>
+</html>

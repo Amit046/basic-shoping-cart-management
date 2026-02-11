@@ -1,0 +1,317 @@
+/* Clean Futuristic Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0f1419;
+    color: #e6edf3;
+    min-height: 100vh;
+}
+
+/* Subtle grid background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(58, 255, 199, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(58, 255, 199, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
+    border-bottom: 1px solid rgba(58, 255, 199, 0.2);
+    padding: 25px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.header-container h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 36px;
+    font-weight: 700;
+    color: #3affc7;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.header-container p {
+    font-size: 13px;
+    color: #8b949e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Main Container */
+.container {
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Products Section */
+.products-section {
+    flex: 2.5;
+}
+
+.products-section h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #e6edf3;
+    font-weight: 600;
+    border-left: 3px solid #3affc7;
+    padding-left: 12px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Product Card */
+.product-card {
+    background: #1a1f2e;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: #3affc7;
+    box-shadow: 0 8px 24px rgba(58, 255, 199, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #30363d;
+}
+
+.product-card h3 {
+    font-size: 17px;
+    margin: 15px 15px 10px;
+    color: #e6edf3;
+    font-weight: 600;
+}
+
+.product-card .price {
+    font-size: 22px;
+    font-weight: 700;
+    color: #3affc7;
+    margin: 0 15px 15px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.add-to-cart-btn {
+    display: block;
+    background: #3affc7;
+    color: #0f1419;
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0 15px 15px;
+    border-radius: 6px;
+}
+
+.add-to-cart-btn:hover {
+    background: #2ee6b3;
+    transform: scale(1.02);
+}
+
+/* Cart Section */
+.cart-section {
+    flex: 1;
+    background: #1a1f2e;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 0;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.cart-section h2 {
+    font-size: 18px;
+    padding: 20px;
+    color: #e6edf3;
+    font-weight: 600;
+    background: rgba(58, 255, 199, 0.05);
+    border-bottom: 1px solid #30363d;
+    margin: 0;
+    border-radius: 8px 8px 0 0;
+}
+
+#cart-items {
+    padding: 20px;
+    min-height: 150px;
+}
+
+.empty-cart {
+    color: #8b949e;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 14px;
+}
+
+.cart-item {
+    background: rgba(58, 255, 199, 0.03);
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 12px;
+    transition: all 0.2s ease;
+}
+
+.cart-item:hover {
+    border-color: #3affc7;
+    background: rgba(58, 255, 199, 0.06);
+}
+
+.cart-item-info {
+    margin-bottom: 12px;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 15px;
+    color: #e6edf3;
+}
+
+.cart-item-price {
+    color: #8b949e;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.cart-item-quantity {
+    color: #8b949e;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.cart-item-subtotal {
+    color: #3affc7;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.remove-btn {
+    background: #da3633;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+    background: #c42b28;
+}
+
+.cart-total {
+    background: rgba(58, 255, 199, 0.05);
+    border-top: 1px solid #30363d;
+    padding: 20px;
+}
+
+.cart-total h3 {
+    font-size: 20px;
+    color: #3affc7;
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+}
+
+/* Footer */
+footer {
+    background: #1a1f2e;
+    border-top: 1px solid #30363d;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 13px;
+    color: #8b949e;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f1419;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3affc7;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .cart-section {
+        position: relative;
+        top: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-container h1 {
+        font-size: 28px;
+    }
+}
